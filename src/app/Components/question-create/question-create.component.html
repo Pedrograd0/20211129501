@@ -1,0 +1,25 @@
+<form>
+    <mat-form-field class="w-75">
+        <mat-label>Questions</mat-label>
+        <input matInput [(ngModel)]="Questions" name="soru" required>
+    </mat-form-field>
+    <div *ngFor="let answer of Answers;let i = index" class="d-flex" style="    display: flex;">
+        <h1 style="margin-right: 4%;">{{i+1}}. Options :</h1>
+        <mat-form-field class="w-75" style="margin-right: 3%;">
+            <mat-label>Options </mat-label>
+            <input matInput [(ngModel)]="answer.ans" name="answer{{answer.id}}">
+        </mat-form-field>
+        <div style="margin-right: 3%;">
+            <mat-label>True Answer</mat-label>
+
+            <mat-select [(ngModel)]="answer.IsTrue" name="IsTrue{{answer.id}}">
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False</mat-option>
+            </mat-select>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end m-5" style="height: 5%;text-align: center;">
+        <button mat-raised-button color="primary" class="w-25 d-flex justify-content-center align-items-center" (click)="kaydet()"><span class="m-2">Save</span></button>
+    </div>
+</form>

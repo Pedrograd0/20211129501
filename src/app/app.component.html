@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-end" style="width: 96%;" *ngIf="this.role != -1">
+
+    <a (click)="Logout()" style="text-decoration: underline;color: #673ab7;"> Logout </a>
+</div>
+<div>
+    <mat-tab-group>
+        <div *ngIf="role==1">
+            <mat-tab label="Question">
+                <app-question></app-question>
+            </mat-tab>
+            <mat-tab label="Create Question">
+                <app-question-create></app-question-create>
+            </mat-tab>
+            <mat-tab label="User Point">
+                <app-user-points></app-user-points>
+            </mat-tab>
+            <mat-tab label="Create User">
+                <app-user-create></app-user-create>
+            </mat-tab>
+
+        </div>
+        <div *ngIf="role==0">
+            <mat-tab label="User Answer">
+                <app-user-question-answer></app-user-question-answer>
+            </mat-tab>
+            <mat-tab label="User Point">
+                <app-user-points></app-user-points>
+            </mat-tab>
+        </div>
+        <div *ngIf="role==-1">
+            <mat-tab label="Login">
+                <app-login></app-login>
+            </mat-tab>
+        </div>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,60 @@
+<div class="question-container">
+
+    <div class="question" *ngFor="let question of questions;let i = index">
+        {{i+1}}. Questons :
+        <div>
+            <div class="" style="display: flex;">
+                <div class="col-9">
+                    <mat-form-field class="w-100">
+                        <input matInput [(ngModel)]="question.questionUser">
+                    </mat-form-field>
+                </div>
+                <div class="" style="width: 5%;">
+                    <button mat-icon-button (click)="editQuestion(question)" style="height: 69%;
+                    width: 100%;">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                </div>
+
+                <div class="" style="width: 5%;" *ngIf="question.questionActive">
+                    <button mat-icon-button (click)="changeActive(question)" style="height: 69%;
+                    width: 100%;">
+                      <mat-icon>highlight_off</mat-icon>
+                    </button>
+                </div>
+                <div class="" style="width: 5%;" *ngIf="!question.questionActive">
+                    <button mat-icon-button (click)="changeActive(question)" style="height: 69%;
+                    width: 100%;">
+                      <mat-icon>check_circle_outline</mat-icon>
+                    </button>
+                </div>
+                <div class="" style="width: 5%;">
+                    <button mat-icon-button (click)="DeleteQuestion(question.id)" style="height: 69%;
+                    width: 100%;">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="answers" style="    position: relative;left: 10%;">
+                <div class="answer" *ngFor="let answer of question.answers;let i = index" style="display: flex;
+                justify-content: space-around;">
+                    <div class="col-sm-7">
+                        <mat-form-field class="w-100">
+                            <input matInput [(ngModel)]="answer.questonAnswer">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-sm-5">
+
+                        <button mat-icon-button (click)="editAnswer(answer)">
+                            <mat-icon>edit</mat-icon>
+                          </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

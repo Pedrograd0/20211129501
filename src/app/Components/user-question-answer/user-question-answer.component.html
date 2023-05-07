@@ -1,0 +1,15 @@
+<div *ngFor="let question of questions;let i=index">
+    <h4 class="" style="background: #e7e7e7;height: 60px;display: flex;align-items: center;">{{i+1}}. Question : {{ question.questionUser }}</h4>
+    <form>
+        <div *ngFor="let answer of question.answers">
+            <div>
+                <input type="checkbox" [id]="'question' + question.id + 'answer' + answer.id" [name]="'question' + question.id" [value]="answer.id" [checked]="CheckAnswer(answer.id)" (change)="onAnswerSelected(question.id, answer)">
+
+                <label>{{ answer.questonAnswer }}</label>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="d-flex justify-content-center m-5" style="height: 13%;text-align: center;">
+    <button (click)="onSubmit()" class="w-50 d-flex justify-content-center align-items-center">Send Answer</button>
+</div>
